@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To my baby</title>
+    <title>Will You Be My Valentine? 💕</title>
     <style>
         * {
             margin: 0;
@@ -191,16 +191,16 @@
                 transform: translateY(-1px);
             }
 
-            .btn-no.shrink {
-                position: fixed;
-                flex: none;
-                min-width: auto;
-                padding: 8px 12px;
-                font-size: 10px;
-                z-index: 1000;
-                cursor: not-allowed;
-                box-shadow: 0 3px 8px rgba(255, 107, 107, 0.3);
-            }
+        .btn-no.shrink {
+            position: fixed;
+            flex: none;
+            min-width: auto;
+            padding: 8px 12px;
+            font-size: 10px;
+            z-index: 1000;
+            cursor: not-allowed;
+            box-shadow: 0 3px 8px rgba(255, 107, 107, 0.3);
+        }
 
         .hearts {
             position: absolute;
@@ -242,8 +242,8 @@
     <div class="container">
         <!-- INTRO PAGES (1-3) - Single Button -->
         <div class="page active" data-page="1">
-            <!-- REPLACE WITH YOUR GIF: <img src="your-image.gif" alt=""> -->
-            <img src="1.jpeg" alt="">
+            <!-- REPLACE WITH YOUR GIF: <img src="ValentineAsker/your-image.gif" alt=""> -->
+            <img src="ValentineAsker/ValentineAsker/1.jpeg" alt="">
             <div class="text-content">Hello my love</div>
             <div class="button-container single">
                 <button class="btn-next" onclick="goToPage(2)">Hello kalbo</button>
@@ -251,8 +251,8 @@
         </div>
 
         <div class="page" data-page="2">
-            <!-- REPLACE WITH YOUR GIF: <img src="your-image.gif" alt=""> -->
-            <img src="2.gif" alt="">
+            <!-- REPLACE WITH YOUR GIF: <img src="ValentineAsker/your-image.gif" alt=""> -->
+            <img src="ValentineAsker/2.gif" alt="">
             <div class="text-content">Malapit na Valentine's day :></div>
             <div class="button-container single">
                 <button class="btn-next" onclick="goToPage(3)">eh ano ngayon</button>
@@ -260,8 +260,8 @@
         </div>
 
         <div class="page" data-page="3">
-            <!-- REPLACE WITH YOUR GIF: <img src="your-image.gif" alt=""> -->
-            <img src="3.gif" alt="">
+            <!-- REPLACE WITH YOUR GIF: <img src="ValentineAsker/your-image.gif" alt=""> -->
+            <img src="ValentineAsker/3.gif" alt="">
             <div class="text-content">hehehe so..... me wanna ask.... :p</div>
             <div class="button-container single">
                 <button class="btn-next" onclick="goToPage(4)">kung bakit maliit ang.. pasensiya mo?</button>
@@ -270,8 +270,8 @@
 
         <!-- YES/NO PAGE -->
         <div class="page" data-page="4">
-            <!-- REPLACE WITH YOUR GIF: <img src="your-image.gif" alt=""> -->
-            <img src="4.gif" alt="">
+            <!-- REPLACE WITH YOUR GIF: <img src="ValentineAsker/your-image.gif" alt=""> -->
+            <img src="ValentineAsker/4.gif" alt="">
             <div class="text-content">Will you be my Valentine, my pretty baby?</div>
             <div class="button-container">
                 <button class="btn-yes" onclick="goToPage(50)">Yes!</button>
@@ -281,7 +281,7 @@
 
         <!-- NO SEQUENCE (5-12) - Increasingly persistent -->
         <div class="page" data-page="5">
-            <img src="No1.gif" alt="">
+            <img src="ValentineAsker/No1.gif" alt="">
             <div class="text-content sad">Whyyyyy sige na po</div>
             <div class="button-container">
                 <button class="btn-yes" onclick="goToPage(50)">Sige na nga</button>
@@ -290,7 +290,7 @@
         </div>
 
         <div class="page" data-page="6">
-            <img src="No2.gif" alt="">
+            <img src="ValentineAsker/No2.gif" alt="">
             <div class="text-content sad">Why u saying no huhhh??</div>
             <div class="button-container">
                 <button class="btn-yes" onclick="goToPage(50)">k payag na me</button>
@@ -299,7 +299,7 @@
         </div>
 
         <div class="page" data-page="7">
-            <img src="No3.gif" alt="">
+            <img src="ValentineAsker/No3.gif" alt="">
             <div class="text-content sad">Ayaw mo pa rin ba payag ka na, baby, iyak ako</div>
             <div class="button-container">
                 <button class="btn-yes" onclick="goToPage(50)">k tahan na banana cat</button>
@@ -308,122 +308,151 @@
         </div>
 
         <div class="page" data-page="8">
-            <img src="No4.gif" alt="">
+            <img src="ValentineAsker/No4.gif" alt="">
             <div class="text-content sad">Ahh, ayaw mo ha</div>
             <div class="button-container">
                 <button class="btn-yes" onclick="goToPage(50)">Yes na nga</button>
-                <button class="btn-no shrink" onclick="goToPage(9)">No no no no no</button>
+                <button class="btn-no shrink" onclick="goToPage(9)">No pa rin</button>
             </div>
         </div>
 
         <div class="page" data-page="9">
-            <img src="No5.gif" alt="">
-            <div class="text-content sad">Hmp ayaw mo pa rin????</div>
+            <!-- REPLACE WITH YOUR GIF: <img src="ValentineAsker/your-image.gif" alt=""> -->
+            <div class="gif-placeholder"></div>
+            <div class="text-content sad">C'mon, pretty please?</div>
             <div class="button-container">
-                <button class="btn-yes" onclick="goToPage(50)">k yes</button>
-                <button class="btn-no shrink" onclick="goToPage(10)">Hahahah no</button>
+                <button class="btn-yes" onclick="goToPage(50)">YES!</button>
+                <button class="btn-no shrink" onclick="goToPage(10)">No</button>
             </div>
         </div>
 
         <div class="page" data-page="10">
-            <img src="No6.gif" alt="">
-            <div class="text-content sad">Say yes na</div>
+            <!-- REPLACE WITH YOUR GIF: <img src="ValentineAsker/your-image.gif" alt=""> -->
+            <div class="gif-placeholder"></div>
+            <div class="text-content sad">I'm gonna cry waaahhh!</div>
             <div class="button-container">
-                <button class="btn-yes" onclick="goToPage(50)">yes daddy</button>
-                <button class="btn-no shrink" onclick="goToPage(11)">Nope no nah</button>
+                <button class="btn-yes" onclick="goToPage(50)">YES!</button>
+                <button class="btn-no shrink" onclick="goToPage(11)">No</button>
             </div>
         </div>
 
         <div class="page" data-page="11">
-            <img src="No7.jpeg" alt="">
-            <div class="text-content sad">😭</div>
+            <!-- REPLACE WITH YOUR GIF: <img src="ValentineAsker/your-image.gif" alt=""> -->
+            <div class="gif-placeholder"></div>
+            <div class="text-content sad">WAAAHHHHH 😭😭😭</div>
             <div class="button-container">
-                <button class="btn-yes" onclick="goToPage(50)">Gusto na nga</button>
-                <button class="btn-no shrink" onclick="goToPage(12)">Yoko nga</button>
+                <button class="btn-yes" onclick="goToPage(50)">YES!</button>
+                <button class="btn-no shrink" onclick="goToPage(12)">No</button>
             </div>
         </div>
 
         <div class="page" data-page="12">
-            <img src="yes1.gif" alt="">
-            <div class="text-content sad">Hahahaha inalis ko na</div>
+            <!-- REPLACE WITH YOUR GIF: <img src="ValentineAsker/your-image.gif" alt=""> -->
+            <div class="gif-placeholder"></div>
+            <div class="text-content sad">Okay fine... I removed the no button!</div>
             <div class="button-container single">
-                <button class="btn-yes" onclick="goToPage(13)">Noooooo</button>
+                <button class="btn-yes" onclick="goToPage(13)">You have no choice now!</button>
             </div>
         </div>
 
         <!-- MAIN SEQUENCE (13-21) - 9 normal pages -->
         <div class="page" data-page="13">
-            <img src="yes2.gif" alt="">
-            <div class="text-content">Heheheh I'm gonna ask you again</div>
+            <!-- REPLACE WITH YOUR GIF: <img src="ValentineAsker/your-image.gif" alt=""> -->
+            <div class="gif-placeholder"></div>
+            <div class="text-content">You're the most amazing person!</div>
             <div class="button-container single">
-                <button class="btn-next" onclick="goToPage(14)">Okay sige na nga</button>
+                <button class="btn-next" onclick="goToPage(14)">Next</button>
             </div>
         </div>
 
         <div class="page" data-page="14">
-            <img src="yes3.gif" alt="">
-            <div class="text-content">My love, will you be my Valentine?</div>
+            <!-- REPLACE WITH YOUR GIF: <img src="ValentineAsker/your-image.gif" alt=""> -->
+            <div class="gif-placeholder"></div>
+            <div class="text-content">I love your smile...</div>
             <div class="button-container single">
-                <button class="btn-next" onclick="goToPage(15)">Yes na yes!</button>
+                <button class="btn-next" onclick="goToPage(15)">Next</button>
             </div>
         </div>
 
         <div class="page" data-page="15">
-            <img src="yes4.gif" alt="">
-            <div class="text-content">Ang plans natin sa 14 ay...</div>
+            <!-- REPLACE WITH YOUR GIF: <img src="ValentineAsker/your-image.gif" alt=""> -->
+            <div class="gif-placeholder"></div>
+            <div class="text-content">And your laugh makes me so happy!</div>
             <div class="button-container single">
-                <button class="btn-next" onclick="goToPage(16)">hmm?</button>
+                <button class="btn-next" onclick="goToPage(16)">Next</button>
             </div>
         </div>
 
         <div class="page" data-page="16">
-            <img src="yes5.gif" alt="">
-            <div class="text-content">Let's buy pangluto ng spaghetti. u know how to make naman diba? <br /> Tapos luto tayo sabay and eat tayo sabay while we watch romance movie heheheh <br /> Pag gusto mo, we can also buy isang can ng beer na light lang since we have no work or school tomorrow <br /> What do u think, baby?</div>
+            <!-- REPLACE WITH YOUR GIF: <img src="ValentineAsker/your-image.gif" alt=""> -->
+            <div class="gif-placeholder"></div>
+            <div class="text-content">Every moment with you is precious...</div>
             <div class="button-container single">
-                <button class="btn-next" onclick="goToPage(17)">Hmmmm okay kalbo</button>
+                <button class="btn-next" onclick="goToPage(17)">Next</button>
             </div>
         </div>
 
         <div class="page" data-page="17">
-            <img src="ye6.gif" alt="">
-            <div class="text-content">Us after</div>
+            <!-- REPLACE WITH YOUR GIF: <img src="ValentineAsker/your-image.gif" alt=""> -->
+            <div class="gif-placeholder"></div>
+            <div class="text-content">You make life so much better!</div>
             <div class="button-container single">
-                <button class="btn-next" onclick="goToPage(18)">eww (yes heheheh)</button>
+                <button class="btn-next" onclick="goToPage(18)">Next</button>
             </div>
         </div>
 
         <div class="page" data-page="18">
-            <img src="yes7.gif" alt="">
-            <div class="text-content">That's all, my love. I hope you liked this and the plan :> <br /> Happy Valentine's Day, baby'</div>
+            <!-- REPLACE WITH YOUR GIF: <img src="ValentineAsker/your-image.gif" alt=""> -->
+            <div class="gif-placeholder"></div>
+            <div class="text-content">I never want to stop talking to you...</div>
             <div class="button-container single">
-                <button class="btn-next" onclick="goToPage(19)">hindi ka kalbo for 5seconds</button>
+                <button class="btn-next" onclick="goToPage(19)">Next</button>
             </div>
         </div>
 
         <div class="page" data-page="19">
-            <img src="yes8.gif" alt="">
-            <div class="text-content">Iloveyousomuch</div>
+            <!-- REPLACE WITH YOUR GIF: <img src="ValentineAsker/your-image.gif" alt=""> -->
+            <div class="gif-placeholder"></div>
+            <div class="text-content">You're my favorite person in the world!</div>
             <div class="button-container single">
-                <button class="btn-next" onclick="goToPage(1)">Iloveyoutoooooo</button>
+                <button class="btn-next" onclick="goToPage(20)">Next</button>
             </div>
         </div>
 
-        
+        <div class="page" data-page="20">
+            <!-- REPLACE WITH YOUR GIF: <img src="ValentineAsker/your-image.gif" alt=""> -->
+            <div class="gif-placeholder"></div>
+            <div class="text-content">You deserve all the love in the universe...</div>
+            <div class="button-container single">
+                <button class="btn-next" onclick="goToPage(21)">Next</button>
+            </div>
+        </div>
+
+        <div class="page" data-page="21">
+            <!-- REPLACE WITH YOUR GIF: <img src="ValentineAsker/your-image.gif" alt=""> -->
+            <div class="gif-placeholder"></div>
+            <div class="text-content">Will you be my Valentine forever?</div>
+            <div class="button-container single">
+                <button class="btn-next" onclick="goToPage(1)">Start Over 💕</button>
+            </div>
+        </div>
 
         <!-- YES PATH (50-51) -->
         <div class="page" data-page="50">
-            <img src="yes9.gif" alt="">
-            <div class="text-content excited">Wow bilis magyes ah</div>
+            <!-- REPLACE WITH YOUR GIF: <img src="ValentineAsker/your-image.gif" alt=""> -->
+            <div class="gif-placeholder"></div>
+            <div class="text-content excited">YESSS!!! You already said yes! 🎊🎊🎊</div>
             <div class="button-container single">
-                <button class="btn-next" onclick="goToPage(51)">Syempre pogi mo kasi</button>
+                <button class="btn-next" onclick="goToPage(51)">Continue</button>
             </div>
         </div>
 
         <div class="page" data-page="51">
-            <img src="yes10.gif" alt="">
-            <div class="text-content excited">Wow u crush me ha hahahahah mwaaahhh</div>
+            <!-- REPLACE WITH YOUR GIF: <img src="ValentineAsker/your-image.gif" alt=""> -->
+            <div class="gif-placeholder"></div>
+            <div class="text-content excited">WOW, you crush me! 😍✨</div>
             <div class="button-container single">
-                <button class="btn-next" onclick="goToPage(13)">Tse</button>
+                <button class="btn-next" onclick="goToPage(13)">Let's continue...</button>
             </div>
         </div>
     </div>
