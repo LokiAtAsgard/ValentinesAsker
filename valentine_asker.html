@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To my baby</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Comic Sans MS', 'Trebuchet MS', cursive;
+            background: linear-gradient(135deg, #ff69b4 0%, #ff1493 50%, #ff69b4 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 6s ease infinite;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .container {
+            width: 100%;
+            max-width: 400px;
+            background: white;
+            border-radius: 30px;
+            padding: 30px 20px;
+            box-shadow: 0 20px 60px rgba(255, 20, 147, 0.4);
+            text-align: center;
+            animation: popIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        @keyframes popIn {
+            0% {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .page {
+            display: none;
+            animation: fadeIn 0.4s ease-in;
+        }
+
+            .page.active {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .gif-placeholder {
+            width: 100%;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
+            .gif-placeholder img {
+                width: 100%;
+                height: auto;
+                display: block;
+                border-radius: 20px;
+            }
+
+        .text-content {
+            font-size: 18px;
+            color: #333;
+            line-height: 1.6;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+
+            .text-content.excited {
+                font-size: 24px;
+                color: #ff1493;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            }
+
+            .text-content.sad {
+                font-size: 20px;
+                color: #ff69b4;
+            }
+
+        .button-container {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+            .button-container.single {
+                gap: 0;
+            }
+
+        button {
+            padding: 15px 40px;
+            font-size: 18px;
+            font-family: 'Comic Sans MS', cursive;
+            font-weight: bold;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-next {
+            background: linear-gradient(135deg, #00bcd4, #00acc1);
+            color: white;
+            flex: 1;
+            min-width: 150px;
+        }
+
+            .btn-next:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 8px 20px rgba(0, 188, 212, 0.4);
+            }
+
+            .btn-next:active {
+                transform: translateY(-1px);
+            }
+
+        .btn-yes {
+            background: linear-gradient(135deg, #4caf50, #45a049);
+            color: white;
+            flex: 1;
+            min-width: 120px;
+        }
+
+            .btn-yes:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 8px 20px rgba(76, 175, 80, 0.4);
+            }
+
+            .btn-yes:active {
+                transform: translateY(-1px);
+            }
+
+        .btn-no {
+            background: linear-gradient(135deg, #ff6b6b, #ff5252);
+            color: white;
+            flex: 1;
+            min-width: 120px;
+            transition: all 0.1s ease;
+        }
+
+            .btn-no:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 8px 20px rgba(255, 107, 107, 0.4);
+            }
+
+            .btn-no:active {
+                transform: translateY(-1px);
+            }
+
+            .btn-no.shrink {
+                position: fixed;
+                flex: none;
+                min-width: auto;
+                padding: 8px 12px;
+                font-size: 10px;
+                z-index: 1000;
+                cursor: not-allowed;
+                box-shadow: 0 3px 8px rgba(255, 107, 107, 0.3);
+            }
+
+        .hearts {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .heart {
+            position: fixed;
+            font-size: 30px;
+            animation: heartFloat 3s ease-in forwards;
+            pointer-events: none;
+        }
+
+        @keyframes heartFloat {
+            0% {
+                opacity: 1;
+                transform: translateY(0) translateX(0) rotate(0deg);
+            }
+
+            100% {
+                opacity: 0;
+                transform: translateY(-500px) translateX(100px) rotate(360deg);
+            }
+        }
+
+        .page-counter {
+            font-size: 12px;
+            color: #999;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="hearts" id="hearts"></div>
+
+    <div class="container">
+        <!-- INTRO PAGES (1-3) - Single Button -->
+        <div class="page active" data-page="1">
+            <!-- REPLACE WITH YOUR GIF: <img src="your-image.gif" alt=""> -->
+            <img src="1.jpeg" alt="">
+            <div class="text-content">Hello my love</div>
+            <div class="button-container single">
+                <button class="btn-next" onclick="goToPage(2)">Hello kalbo</button>
+            </div>
+        </div>
+
+        <div class="page" data-page="2">
+            <!-- REPLACE WITH YOUR GIF: <img src="your-image.gif" alt=""> -->
+            <img src="2.gif" alt="">
+            <div class="text-content">Malapit na Valentine's day :></div>
+            <div class="button-container single">
+                <button class="btn-next" onclick="goToPage(3)">eh ano ngayon</button>
+            </div>
+        </div>
+
+        <div class="page" data-page="3">
+            <!-- REPLACE WITH YOUR GIF: <img src="your-image.gif" alt=""> -->
+            <img src="3.gif" alt="">
+            <div class="text-content">hehehe so..... me wanna ask.... :p</div>
+            <div class="button-container single">
+                <button class="btn-next" onclick="goToPage(4)">kung bakit maliit ang.. pasensiya mo?</button>
+            </div>
+        </div>
+
+        <!-- YES/NO PAGE -->
+        <div class="page" data-page="4">
+            <!-- REPLACE WITH YOUR GIF: <img src="your-image.gif" alt=""> -->
+            <img src="4.gif" alt="">
+            <div class="text-content">Will you be my Valentine, my pretty baby?</div>
+            <div class="button-container">
+                <button class="btn-yes" onclick="goToPage(50)">Yes!</button>
+                <button class="btn-no" onclick="goToPage(5)">AYOKOOO</button>
+            </div>
+        </div>
+
+        <!-- NO SEQUENCE (5-12) - Increasingly persistent -->
+        <div class="page" data-page="5">
+            <img src="No1.gif" alt="">
+            <div class="text-content sad">Whyyyyy sige na po</div>
+            <div class="button-container">
+                <button class="btn-yes" onclick="goToPage(50)">Sige na nga</button>
+                <button class="btn-no" onclick="goToPage(6)">No</button>
+            </div>
+        </div>
+
+        <div class="page" data-page="6">
+            <img src="No2.gif" alt="">
+            <div class="text-content sad">Why u saying no huhhh??</div>
+            <div class="button-container">
+                <button class="btn-yes" onclick="goToPage(50)">k payag na me</button>
+                <button class="btn-no" onclick="goToPage(7)">Hehehe, no</button>
+            </div>
+        </div>
+
+        <div class="page" data-page="7">
+            <img src="No3.gif" alt="">
+            <div class="text-content sad">Ayaw mo pa rin ba payag ka na, baby, iyak ako</div>
+            <div class="button-container">
+                <button class="btn-yes" onclick="goToPage(50)">k tahan na banana cat</button>
+                <button class="btn-no shrink" onclick="goToPage(8)">nuh uh</button>
+            </div>
+        </div>
+
+        <div class="page" data-page="8">
+            <img src="No4.gif" alt="">
+            <div class="text-content sad">Ahh, ayaw mo ha</div>
+            <div class="button-container">
+                <button class="btn-yes" onclick="goToPage(50)">Yes na nga</button>
+                <button class="btn-no shrink" onclick="goToPage(9)">No no no no no</button>
+            </div>
+        </div>
+
+        <div class="page" data-page="9">
+            <img src="No5.gif" alt="">
+            <div class="text-content sad">Hmp ayaw mo pa rin????</div>
+            <div class="button-container">
+                <button class="btn-yes" onclick="goToPage(50)">k yes</button>
+                <button class="btn-no shrink" onclick="goToPage(10)">Hahahah no</button>
+            </div>
+        </div>
+
+        <div class="page" data-page="10">
+            <img src="No6.gif" alt="">
+            <div class="text-content sad">Say yes na</div>
+            <div class="button-container">
+                <button class="btn-yes" onclick="goToPage(50)">yes daddy</button>
+                <button class="btn-no shrink" onclick="goToPage(11)">Nope no nah</button>
+            </div>
+        </div>
+
+        <div class="page" data-page="11">
+            <img src="No7.jpeg" alt="">
+            <div class="text-content sad">😭</div>
+            <div class="button-container">
+                <button class="btn-yes" onclick="goToPage(50)">Gusto na nga</button>
+                <button class="btn-no shrink" onclick="goToPage(12)">Yoko nga</button>
+            </div>
+        </div>
+
+        <div class="page" data-page="12">
+            <img src="yes1.gif" alt="">
+            <div class="text-content sad">Hahahaha inalis ko na</div>
+            <div class="button-container single">
+                <button class="btn-yes" onclick="goToPage(13)">Noooooo</button>
+            </div>
+        </div>
+
+        <!-- MAIN SEQUENCE (13-21) - 9 normal pages -->
+        <div class="page" data-page="13">
+            <img src="yes2.gif" alt="">
+            <div class="text-content">Heheheh I'm gonna ask you again</div>
+            <div class="button-container single">
+                <button class="btn-next" onclick="goToPage(14)">Okay sige na nga</button>
+            </div>
+        </div>
+
+        <div class="page" data-page="14">
+            <img src="yes3.gif" alt="">
+            <div class="text-content">My love, will you be my Valentine?</div>
+            <div class="button-container single">
+                <button class="btn-next" onclick="goToPage(15)">Yes na yes!</button>
+            </div>
+        </div>
+
+        <div class="page" data-page="15">
+            <img src="yes4.gif" alt="">
+            <div class="text-content">Ang plans natin sa 14 ay...</div>
+            <div class="button-container single">
+                <button class="btn-next" onclick="goToPage(16)">hmm?</button>
+            </div>
+        </div>
+
+        <div class="page" data-page="16">
+            <img src="yes5.gif" alt="">
+            <div class="text-content">Let's buy pangluto ng spaghetti. u know how to make naman diba? <br /> Tapos luto tayo sabay and eat tayo sabay while we watch romance movie heheheh <br /> Pag gusto mo, we can also buy isang can ng beer na light lang since we have no work or school tomorrow <br /> What do u think, baby?</div>
+            <div class="button-container single">
+                <button class="btn-next" onclick="goToPage(17)">Hmmmm okay kalbo</button>
+            </div>
+        </div>
+
+        <div class="page" data-page="17">
+            <img src="ye6.gif" alt="">
+            <div class="text-content">Us after</div>
+            <div class="button-container single">
+                <button class="btn-next" onclick="goToPage(18)">eww (yes heheheh)</button>
+            </div>
+        </div>
+
+        <div class="page" data-page="18">
+            <img src="yes7.gif" alt="">
+            <div class="text-content">That's all, my love. I hope you liked this and the plan :> <br /> Happy Valentine's Day, baby'</div>
+            <div class="button-container single">
+                <button class="btn-next" onclick="goToPage(19)">hindi ka kalbo for 5seconds</button>
+            </div>
+        </div>
+
+        <div class="page" data-page="19">
+            <img src="yes8.gif" alt="">
+            <div class="text-content">Iloveyousomuch</div>
+            <div class="button-container single">
+                <button class="btn-next" onclick="goToPage(1)">Iloveyoutoooooo</button>
+            </div>
+        </div>
+
+        
+
+        <!-- YES PATH (50-51) -->
+        <div class="page" data-page="50">
+            <img src="yes9.gif" alt="">
+            <div class="text-content excited">Wow bilis magyes ah</div>
+            <div class="button-container single">
+                <button class="btn-next" onclick="goToPage(51)">Syempre pogi mo kasi</button>
+            </div>
+        </div>
+
+        <div class="page" data-page="51">
+            <img src="yes10.gif" alt="">
+            <div class="text-content excited">Wow u crush me ha hahahahah mwaaahhh</div>
+            <div class="button-container single">
+                <button class="btn-next" onclick="goToPage(13)">Tse</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function getRandomPosition() {
+            const x = Math.random() * (window.innerWidth - 100);
+            const y = Math.random() * (window.innerHeight - 100);
+            return { x, y };
+        }
+
+        function goToPage(pageNumber) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+
+            // Show the target page
+            const targetPage = document.querySelector(`[data-page="${pageNumber}"]`);
+            if (targetPage) {
+                targetPage.classList.add('active');
+            }
+
+            // Reposition shrink buttons on pages 7-12
+            if (pageNumber >= 7 && pageNumber <= 12) {
+                const shrinkButton = targetPage.querySelector('.btn-no.shrink');
+                if (shrinkButton) {
+                    const pos = getRandomPosition();
+                    shrinkButton.style.left = pos.x + 'px';
+                    shrinkButton.style.top = pos.y + 'px';
+                }
+            }
+
+            // Create hearts on yes pages
+            if (pageNumber === 50 || pageNumber === 51) {
+                createHearts();
+            }
+
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        function createHearts() {
+            const container = document.getElementById('hearts');
+            for (let i = 0; i < 10; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.textContent = '❤️';
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.top = '100%';
+                heart.style.animationDelay = Math.random() * 0.5 + 's';
+                container.appendChild(heart);
+
+                // Remove heart after animation
+                setTimeout(() => heart.remove(), 3000);
+            }
+        }
+
+        // Initial page load
+        goToPage(1);
+    </script>
+</body>
+</html>
